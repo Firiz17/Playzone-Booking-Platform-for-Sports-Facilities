@@ -17,7 +17,8 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 
 ## Objective  
 1. To be able to register as customer or as owner of the sport's facilities
-   -test
+      -test
+         -test
     
 ## Features and Functionality  
 ## Diagram  
