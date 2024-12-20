@@ -1,3 +1,4 @@
+
 # Playzone-Booking-Platform-for-Sports-Facilities  
 **Title of Projects: Playzone: Booking Platform For Sports Facilities**  
 **Group: G**  
@@ -19,14 +20,12 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 ## Objective  
 1. To be able to register as customer or as owner of the sport's facilities
     - As Customer
-      - Customer can view the types of sports facilities, their availability, price, and locations.
-      - Customer can book the facilities based on availability.
-      - Customer can organize events.
-      - Customer can leave rating and reviews
+      
     - test
-      - test
+      
     
 ## Features and Functionality  
 ## Diagram  
 ### ERD
 ### Sequence Diagram
+
