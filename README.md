@@ -16,10 +16,10 @@
 Playzone is a user-friendly platform that allows individuals and groups to seamlessly book sports facilities for events, practice sessions, or personal use. With Playzone, users can effortlessly check availability, avoid scheduling conflicts, and secure their desired facility in just a few clicks. Whether you're planning a tournament, organizing a game with friends, or simply looking for some solo practice time, Playzone ensures a smooth and hassle-free booking experience.  
 
 ## Objective  
-- To be able to register as customer or as owner of the sport's facilities
+1. To be able to register as customer or as owner of the sport's facilities
   -As customer
     -Can see sports facilities type, available time and location
-    -
+    
 ## Features and Functionality  
 ## Diagram  
 ### ERD
