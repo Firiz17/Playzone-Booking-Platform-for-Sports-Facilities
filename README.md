@@ -6,10 +6,10 @@
 
 
 ## Group Members
-| Name  | Matrics No |
-| ------------- | ------------- |
-| Muhammad Hariz Firhan Bin Mohd Rizlan  | 2220041  |
-| Content Cell  | Content Cell  |
+| Name  | Matrics No | Module |
+| ------------- | ------------- | ------------- |
+| Muhammad Hariz Firhan Bin Mohd Rizlan  | 2220041  | MOdule 3 |
+| Content Cell  | Content Cell  | conetent cell |
 
 
 ## Introduction  
