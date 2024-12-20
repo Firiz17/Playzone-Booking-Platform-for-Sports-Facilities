@@ -9,9 +9,9 @@
 ## Group Members
 | Name  | Matrics No | Module |
 | ------------- | ------------- | ------------- |
-| Muhammad Hariz Firhan Bin Mohd Rizlan  | 2220041  | MOdule 3 |
-| Muhammad Aqil bin Suhazi Reza  | 2222987  | MOdule 1 |
-| Muhammad Afzal Bin Mohd Nor  | 2123023  | MOdule 2 |
+| Muhammad Hariz Firhan Bin Mohd Rizlan  | 2220041  | Module 3 |
+| Muhammad Aqil bin Suhazi Reza  | 2222987  | Module 1 |
+| Muhammad Afzal Bin Mohd Nor  | 2123023  | Module 2 |
 | Nurain Awatif Binti Ismail  | 2214552  | Module 5 |
 | Content Cell  | Content Cell  | conetent cell |
 
