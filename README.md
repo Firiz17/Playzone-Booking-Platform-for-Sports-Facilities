@@ -17,7 +17,10 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 
 ## Objective  
 1. To be able to register as customer or as owner of the sport's facilities
-    - test
+    - As Customer
+      - Customers can view the types of sports facilities, their availability,prices, and locations.
+      - Customers can book the facilities based on availabilities.
+      - Customers can organize an events
     - test
       - test
     
