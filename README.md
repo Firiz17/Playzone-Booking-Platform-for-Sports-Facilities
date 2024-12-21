@@ -28,6 +28,37 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
       
     
 ## Features and Functionality  
+1. User Registration & Profiles
+   - Features:
+        • User Sign-up/Login: Options for sign-up using email, or phone.
+        • User Profile: Personal details, preferences, booking history, payment info, and notifications.
+        • User Roles: Different profiles for players, coaches, teams, or clubs with access to specific features.
+2. Facility Management Module
+   - Features:
+         • Add, update, and delete sports facilities (admin/owners).
+         • Facility details (name, location, available sports, pricing, photos).
+         • Availability management (set schedules, block dates/times).
+3. Booking and Payment Module
+    - Features:
+         • Real-time availability display for booking slots.
+         • Booking creation, modification, and cancellation.
+         • Integration with payment gateways for secure online payments.
+4. Review and Rating Module
+    - Features:
+         • Players can leave reviews and ratings for facilities they’ve booked.
+         • Facility owners can respond to reviews.
+         • Display average ratings and reviews on facility pages.
+5. Notification and Reporting Module(Firhan)
+    - Features:
+         • Email/SMS notifications for booking confirmations, reminders, and cancellations.
+         • Reports for facility owners (monthly revenue, booking trends).
+         • Admin dashboard for platform performance monitoring (total users, bookings).
+6. Event Management Module
+   - Features:
+         • Create and manage sports events or tournaments at facilities.
+         • Allow users to register as participants or spectators for events.
+         • Event details (date, time, rules, prizes, participant capacity).
+         • Integration with booking schedules to avoid double-booking facilities.
 ## Diagram  
 ### ERD
 ### Sequence Diagram
