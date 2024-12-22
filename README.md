@@ -2,7 +2,7 @@
 # Playzone-Booking-Platform-for-Sports-Facilities  
 **Title of Projects: Playzone: Booking Platform For Sports Facilities**  
 **Group: G**  
-**Section: 2**
+**Section: 2**  
 **Lecturer's Name : Sir Mohd Khairul Azmi Bin Hassan**  
 
 
