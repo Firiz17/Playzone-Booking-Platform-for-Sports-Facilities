@@ -97,5 +97,5 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 ## Diagram  
 ### ERD
 ### Sequence Diagram
-!(Sequence diagram (2).jpg)
+![Sequence Diagram](Sequence%20diagram%20(2).jpg)
 
