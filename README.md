@@ -95,7 +95,9 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
          • Event details (date, time, rules, prizes, participant capacity).
          • Integration with booking schedules to avoid double-booking facilities.
 ## Diagram  
-### ERD
+### ERD  
+![ERD Diagram](ERD%20WAD.png)
+
 ### Sequence Diagram
 ![Sequence Diagram](Sequence%20diagram%20(2).jpg)
 
