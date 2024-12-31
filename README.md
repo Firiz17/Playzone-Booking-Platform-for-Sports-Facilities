@@ -101,3 +101,21 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 ### Sequence Diagram
 ![Sequence Diagram](Sequence%20diagram%20(2).jpg)
 
+## Mock up
+# Module 1
+![Module 1](Mock%20Up/Module%201.png)
+
+# Module 2
+![Module 2](Mock%20Up/Module%202.png)
+
+# Module 3
+![Module 3](Mock%20Up/Module%203.png)
+![Module 3](Mock%20Up/Module%203%20(2).png)
+
+# Module 4
+![Module 4](Mock%20Up/Module%204.png)
+![Module 4](Mock%20Up/Module%204%20(2).png)
+
+# Module 5
+![Module 5](Mock%20Up/Module%205.png)
+
