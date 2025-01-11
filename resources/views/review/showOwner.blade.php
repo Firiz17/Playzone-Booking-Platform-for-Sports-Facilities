@@ -57,7 +57,7 @@
                                                     <p class="mb-1">
                                                         {{$comment->user->username}} <span class="small">- {{$comment->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;-Rating: {{$comment->reviews}}</span>
                                                     </p>
-                                                    
+                                                    <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small"> reply</span></a>
                                                 </div>
                                                 <p class="small mb-0">
                                                     {{$comment->comments}}
@@ -100,8 +100,3 @@
 
 </body>
 </html>
-
-
-
-
-

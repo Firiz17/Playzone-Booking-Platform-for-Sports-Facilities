@@ -12,7 +12,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return'index';
+        $comment = Review::query()->with('user')->orderBy('created_at')->paginate(5);
+        return view("review.show",['comments'=>$comment]);
     }
 
     /**
@@ -21,6 +22,7 @@ class ReviewController extends Controller
     public function create()
     {
         return view("review.createCustomer");
+
     }
 
     /**
@@ -28,7 +30,12 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        
+            Review::create([
+            'user_id' => 1,
+            'comments' => $request->input('comments'),
+            'reviews' => $request->input('reviews'),
+        ]);
+        return redirect()->route('review.index')->with('success', 'Comment added successfully!');
     }
 
     /**

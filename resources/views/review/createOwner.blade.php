@@ -13,17 +13,6 @@
             <label for="comment">Comment</label>
             <textarea class="form-control" id="comment" name="comments" rows="4" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="rating">Rating (1-5)</label>
-            <select class="form-control" id="reviews" name="reviews" required>
-                <option value="" disabled selected>-- Select a Rating --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
