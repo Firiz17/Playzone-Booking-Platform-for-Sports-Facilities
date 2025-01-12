@@ -45,9 +45,10 @@ class AuthController extends Controller
             'username' => $validated['username'],
             'phone_number' => $validated['phone_number'],
             'email' => $validated['email'],
-            'password' =>$validated['password'], // Password hashing
+            'password' => Hash::make($validated['password']), // Password hashing
             'role' => $validated['role'],
         ]);
+        //dd($request->all());
         return redirect()->route('login.create')->with('success', 'Registration successful! Please login.');
 
     }
@@ -63,14 +64,14 @@ class AuthController extends Controller
 
            if ($user->role === 'customer') {
 
-               return redirect()->route('review.create');
+               return redirect()->route('review.customerComment');
             } elseif ($user->role === 'owner') {
 
-                return redirect()->route('review.create');
+                return redirect()->route('review.ownerComment');
             }
 
 
-            return redirect()->route('signUp,create');
+            return redirect()->route('signUp.create');
         }
     }
     /**

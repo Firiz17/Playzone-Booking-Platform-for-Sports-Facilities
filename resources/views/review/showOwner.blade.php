@@ -46,51 +46,53 @@
                 <div class="col-md-12 col-lg-10 col-xl-8">
                     <div class="card">
                         <div class="card-body p-4">
-                            <h4 class="text-center mb-4 pb-2">Nested comments section</h4>
-                        @foreach ($comments as $comment)
-                            <div class="row">
-                                <div class="col">
-                                    <div class="d-flex flex-start comment-box">
-                                        <div class="flex-grow-1 flex-shrink-1">
-                                            <div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="mb-1">
-                                                        {{$comment->user->username}} <span class="small">- {{$comment->created_at}}&nbsp;&nbsp;&nbsp;&nbsp;-Rating: {{$comment->reviews}}</span>
-                                                    </p>
-                                                    <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small"> reply</span></a>
-                                                </div>
-                                                <p class="small mb-0">
-                                                    {{$comment->comments}}
-                                                </p>
-                                            </div>
-
-                                            <div class="d-flex flex-start mt-4 reply">
+                            <h4 class="text-center mb-4 pb-2">Owner's Response Section</h4>
+                            @foreach ($comments as $comment)
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="d-flex flex-start comment-box">
                                                 <div class="flex-grow-1 flex-shrink-1">
                                                     <div>
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <p class="mb-1">
-                                                                Simona Disa <span class="small">- 3 hours ago</span>
-                                                            </p>
-                                                        </div>
-                                                        <p class="small mb-0">
-                                                            Letters, as opposed to using 'Content here, content here', making it look like readable English.
+                                                        <p class="mb-1">
+                                                            {{ $comment->user->username }}
+                                                            <span class="small">- {{ $comment->created_at }}</span>
+                                                            <a href="{{ route('review.createComment', ['id' => $comment->id]) }}" class="btn btn-primary">
+                                                                <i class="fas fa-reply fa-xs"></i><span class="small"> reply</span>
+                                                            </a>
                                                         </p>
+                                                        <p class="small mb-0">{{ $comment->comments }}</p>
                                                     </div>
+
+                                                    <!-- Display replies under the comment -->
+                                                    @foreach ($comment->replies as $reply)
+                                                    @php
+                                                        dd($comment->replies);  // Check if replies exist here
+                                                    @endphp
+                                                        <div class="d-flex flex-start mt-4 reply">
+                                                            <div class="flex-grow-1 flex-shrink-1">
+                                                                <p class="mb-1">
+                                                                    {{ $reply->user->username }} (Owner)
+                                                                    <span class="small">- {{ $reply->created_at }}</span>
+                                                                </p>
+                                                                <p class="small mb-0">{{ $reply->comments }}</p>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            @endforeach
+                                @endforeach
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <button class="btn btn-primary" href={{ {{ route('routeName')}}}}></button>
+
+
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
