@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <h1>PlayZone</h1>
             <nav>
@@ -17,20 +18,26 @@
                 </ul>
             </nav>
         </aside>
+
+        <!-- Main Content -->
         <main class="main-content">
+            <!-- Filters -->
             <div class="filters">
-                <select name="sport-category">
+                <select>
                     <option>Select Sports</option>
                 </select>
-                <select name="date">
+                <select>
                     <option>Select Date</option>
                 </select>
-                <select name="city">
+                <select>
                     <option>Select City</option>
                 </select>
                 <input type="text" placeholder="Search complex">
             </div>
+
+            <!-- Event Cards -->
             <div class="event-cards">
+                <!-- Event Card 1 -->
                 <div class="card">
                     <img src="images/event1.jpg" alt="Event 1">
                     <div class="details">
@@ -38,11 +45,34 @@
                         <p><strong>Time:</strong> 4:00 PM - 9:00 PM</p>
                         <p><strong>Location:</strong> IIUM Main Field</p>
                         <p><strong>Prizes:</strong> RM 1,000 + Trophy + Medals</p>
-                        <p><strong>Slots Available:</strong> 8/12 Teams</p>
+                        <p><strong>Participant Slots Available:</strong> 8/12 Teams</p>
                         <button>JOIN NOW</button>
                     </div>
                 </div>
-                <!-- Add more event cards similarly -->
+                <!-- Event Card 2 -->
+                <div class="card">
+                    <img src="images/event2.jpg" alt="Event 2">
+                    <div class="details">
+                        <p><strong>Date:</strong> 10th February 2024</p>
+                        <p><strong>Time:</strong> 8:00 AM - 5:00 PM</p>
+                        <p><strong>Location:</strong> University Malaya Field</p>
+                        <p><strong>Prizes:</strong> Medals + RM 2,000 Cash Prizes</p>
+                        <p><strong>Participant Slots Available:</strong> 15/20 Events</p>
+                        <button>JOIN NOW</button>
+                    </div>
+                </div>
+                <!-- Event Card 3 -->
+                <div class="card">
+                    <img src="images/event3.jpg" alt="Event 3">
+                    <div class="details">
+                        <p><strong>Date:</strong> 20th March 2024</p>
+                        <p><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
+                        <p><strong>Location:</strong> City Sports Complex</p>
+                        <p><strong>Prizes:</strong> RM 500 + Trophies</p>
+                        <p><strong>Participant Slots Available:</strong> 20/32 Players</p>
+                        <button>JOIN NOW</button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
