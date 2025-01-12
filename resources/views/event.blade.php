@@ -5,6 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlayZone</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #2E7D32; /* Green color for sidebar */
+            color: white;
+            width: 20%;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sidebar h1 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .filters select, .filters input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Event Cards */
+        .event-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .card .details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card .details p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .card .details button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .card .details button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
