@@ -8,13 +8,13 @@
     <style>
         .gradient-custom-2 {
             /* fallback for old browsers */
-            background: #fccb90;
+            background: #a8e063;
 
             /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+            background: -webkit-linear-gradient(to right, #56ab2f, #a8e063);
 
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+            background: linear-gradient(to right, #56ab2f, #a8e063);
         }
 
         @media (min-width: 768px) {
@@ -67,8 +67,9 @@
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account?</p>
-                                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger" >Create new</button>
+                                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger" onclick="window.location.href='{{ route('signUp.create') }}'">Create new</button>
                                     </div>
+
 
                                 </form>
 
@@ -94,3 +95,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>
 </html>
+

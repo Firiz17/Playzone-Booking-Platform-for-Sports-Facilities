@@ -13,31 +13,37 @@ class ReviewController extends Controller
      */
     public function customerComments()
 {
+    $averageRating =round(Review::avg('reviews'),1);
+    $totalReviews = Review::whereHas('user', function ($query) {
+        $query->where('role', 'customer');
+    })->count();
     $comments = Review::with('user')
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
-    // Retrieve comments from customers, including owner replies
-    //$comments = Review::with(['replies' => function($query) {
-   //     $query->whereHas('user', function($subQuery) {
-    //        $subQuery->where('role', 'owner');  // Only fetch replies from owners
-    //    })->with('user');  // Ensure the user information is eager-loaded
-    //}])
-    //->whereHas('user', function($query) {
-    //    $query->where('role', 'customer');  // Only fetch comments from customers
-    //})
-    //->orderBy('created_at', 'desc')  // Order by creation date, most recent first
-    //->paginate(10);  // Paginate the results
 
-    return view("review.show", ['comments' => $comments]);
+
+    return view("review.show", [
+        'comments' => $comments,
+        'rating'=>$averageRating,
+        'review'=>$totalReviews
+    ]);
 }
         public function ownerComments()
         {
+            $averageRating =round(Review::avg('reviews'),1);
+            $totalReviews = Review::whereHas('user', function ($query) {
+                $query->where('role', 'customer');
+            })->count();
 
             $comments = Review::with('user')
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
-            return view("review.showOwner", ['comments' => $comments]);
+                return view("review.showOwner", [
+                    'comments' => $comments,
+                    'rating'=>$averageRating,
+                    'review'=>$totalReviews
+                ]);
         }
 
     /**
@@ -114,9 +120,18 @@ class ReviewController extends Controller
             }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    public function average(Request $request)
+{
+    // Calculate the average rating from the 'reviews' column
+    $averageRating =Review::avg('reviews');
+    $totalReviews =Review::count();
+
+    // Return the view with both values passed
+    return view('review.show', [
+        'rating' => number_format($averageRating, 2),
+        'review' => $totalReviews
+    ]);
+}
     public function edit(Review $review)
     {
         return'edit';
