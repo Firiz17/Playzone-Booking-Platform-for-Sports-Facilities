@@ -12,14 +12,17 @@ class Review extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function parent()
+{
+    return $this->belongsTo(Review::class, 'parent_id');
+}
 
-    public function replies()
-        {
-            return $this->hasMany(Review::class, 'parent_id');  // Replies to the review
-        }
+// Relationship for the replies to the current comment
+public function replies()
+{
+    return $this->hasMany(Review::class, 'parent_id');
+}
 
-        public function parent()
-        {
-            return $this->belongsTo(Review::class, 'parent_id');  // The original comment (parent)
-        }
+
+
 }

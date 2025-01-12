@@ -37,6 +37,15 @@
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
               <form action="{{ route('signUp.store') }}" method="POST">
                 @csrf
                 <div class="row">
@@ -63,14 +72,11 @@
                   </div>
                   <div class="col-md-6 mb-4">
                     <h6 class="mb-2 pb-1">Role: </h6>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="role" id="customerRole" value="customer" required/>
-                      <label class="form-check-label" for="customerRole">Customer</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="role" id="ownerRole" value="owner" required/>
-                      <label class="form-check-label" for="ownerRole">Owner</label>
-                    </div>
+                    <select class="form-control" name="role" required>
+                        <option value="" disabled selected>Select your role</option>
+                         <option value="customer">Customer</option>
+                         <option value="owner">Owner</option>
+                    </select>
                   </div>
                 </div>
 
