@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FacilityController;
 
 Route::get('/customer/comments', [ReviewController::class,'customerComments'])->name('review.customerComment');
 Route::get('/owner/comments', [ReviewController::class,'ownerComments'])->name('review.ownerComment');
@@ -17,4 +18,8 @@ Route::get('/signUp/create',[AuthController::class,'index'])->name('signUp.creat
 Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
+
+
+//Route::get('/facilities', [FacilityController::class, 'index'])->name('facility.show'); // Homepage
+Route::resource('facilities', FacilityController::class); // Facility routes
 
