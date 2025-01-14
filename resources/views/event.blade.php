@@ -24,10 +24,11 @@
             width: 20%;
             padding: 20px;
             min-height: 100vh;
+            
         }
 
         .sidebar h1 {
-            margin: 0 0 20px;
+            margin: 0 0 100px;
             font-size: 24px;
             text-align: center;
         }
@@ -39,7 +40,7 @@
         }
 
         .sidebar nav ul li {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             text-align: center;
         }
 
@@ -52,7 +53,7 @@
         .main-content {
             width: 80%;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color:rgb(203, 203, 203);
         }
 
         .filters {
@@ -150,6 +151,22 @@
         }
 
         .filters button:hover {
+            background-color: #1B5E20;
+        }
+
+        .join-now-button {
+            display: inline-block;
+            background-color: #2E7D32;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .join-now-button:hover {
             background-color: #1B5E20;
         }
     </style>
@@ -344,7 +361,7 @@
                         <p><strong>Location:</strong> ${event.location}</p>
                         <p><strong>Prizes:</strong> ${event.prizes}</p>
                         <p><strong>Participant Slots Available:</strong> ${event.slotsAvailable}</p>
-                        <button>JOIN NOW</button>
+                         <a href="/joinevent" class="join-now-button">JOIN NOW</a>
                     </div>
                 `;
                 eventCards.appendChild(eventCard);
