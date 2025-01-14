@@ -18,3 +18,7 @@ Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
 
+Route::get('/event', function(){
+    return view('event');
+});
+
