@@ -6,7 +6,6 @@
     <title>PlayZone</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -19,9 +18,8 @@
             width: 100%;
         }
 
-        /* Sidebar */
         .sidebar {
-            background-color: #2E7D32; /* Green color for sidebar */
+            background-color: #2E7D32;
             color: white;
             width: 20%;
             padding: 20px;
@@ -51,14 +49,12 @@
             font-size: 18px;
         }
 
-        /* Main Content */
         .main-content {
             width: 80%;
             padding: 20px;
             background-color: #f5f5f5;
         }
 
-        /* Filters */
         .filters {
             display: flex;
             gap: 10px;
@@ -72,7 +68,6 @@
             border-radius: 5px;
         }
 
-        /* Event Cards */
         .event-cards {
             display: flex;
             gap: 20px;
@@ -90,7 +85,7 @@
 
         .card img {
             width: 100%;
-            height: auto;
+            height: 400px;
             object-fit: cover;
         }
 
@@ -118,73 +113,118 @@
         .card .details button:hover {
             background-color: #1B5E20;
         }
+
+        .filters select {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .filters select:hover {
+            background-color: rgb(199, 255, 170);
+        }
+
+        .filters select:focus {
+            outline: 2px solid rgb(255, 255, 255);
+        }
+
+        .filters select:not(:last-child) {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <h1>PlayZone</h1>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
+                    <li><a href="#">Bookings</a></li>
                     <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
         </aside>
-
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Filters -->
             <div class="filters">
                 <select>
-                    <option>Select Sports</option>
+                    <option disabled selected>Select Sports</option>
+                    <option value="football">Football</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="badminton">Badminton</option>
+                    <option value="volleyball">Volleyball</option>
+                    <option value="tennis">Tennis</option>
                 </select>
                 <select>
-                    <option>Select Date</option>
+                    <option>Select Month</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
                 </select>
                 <select>
                     <option>Select City</option>
+                    <option value="gombak">Gombak</option>
+                    <option value="kuala-lumpur">Kuala Lumpur</option>
+                    <option value="shah-alam">Wangsa Maju</option>
+                    <option value="penang">Setapak</option>
+                    <option value="johor">Batu Caves</option>
                 </select>
                 <input type="text" placeholder="Search complex">
             </div>
-
-            <!-- Event Cards -->
             <div class="event-cards">
-                <!-- Event Card 1 -->
                 <div class="card">
-                    <img src="images/event1.jpg" alt="Event 1">
+                    <img src="images/event1.jpg" alt="event 1">
                     <div class="details">
-                        <p><strong>Date:</strong> 15th January 2024</p>
+                        <p><strong>Date:</strong> 15th January 2025</p>
                         <p><strong>Time:</strong> 4:00 PM - 9:00 PM</p>
                         <p><strong>Location:</strong> IIUM Main Field</p>
                         <p><strong>Prizes:</strong> RM 1,000 + Trophy + Medals</p>
-                        <p><strong>Participant Slots Available:</strong> 8/12 Teams</p>
-                        <button>JOIN NOW</button>
+                        <p><strong>Participant Slots Available:</strong> 8/12 Players</p>
+                        <a href="{{ route('joinevent') }}">
+                            <button>JOIN NOW</button>
+                        </a>
                     </div>
                 </div>
-                <!-- Event Card 2 -->
                 <div class="card">
                     <img src="images/event2.jpg" alt="Event 2">
                     <div class="details">
-                        <p><strong>Date:</strong> 10th February 2024</p>
+                        <p><strong>Date:</strong> 10th February 2025</p>
                         <p><strong>Time:</strong> 8:00 AM - 5:00 PM</p>
                         <p><strong>Location:</strong> University Malaya Field</p>
                         <p><strong>Prizes:</strong> Medals + RM 2,000 Cash Prizes</p>
-                        <p><strong>Participant Slots Available:</strong> 15/20 Events</p>
-                        <button>JOIN NOW</button>
+                        <p><strong>Participant Slots Available:</strong> 15/20 Players</p>
+                        <a href="{{ route('joinevent') }}">
+                            <button>JOIN NOW</button>
+                        </a>
                     </div>
                 </div>
-                <!-- Event Card 3 -->
                 <div class="card">
                     <img src="images/event3.jpg" alt="Event 3">
                     <div class="details">
-                        <p><strong>Date:</strong> 20th March 2024</p>
+                        <p><strong>Date:</strong> 20th March 2025</p>
                         <p><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
                         <p><strong>Location:</strong> City Sports Complex</p>
                         <p><strong>Prizes:</strong> RM 500 + Trophies</p>
                         <p><strong>Participant Slots Available:</strong> 20/32 Players</p>
-                        <button>JOIN NOW</button>
+                        <a href="{{ route('joinevent') }}">
+                            <button>JOIN NOW</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -192,3 +232,4 @@
     </div>
 </body>
 </html>
+
