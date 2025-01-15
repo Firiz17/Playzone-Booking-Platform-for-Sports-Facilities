@@ -206,7 +206,7 @@
 
         <!-- Comments Section -->
         <div class="main-container">
-            <h1 class="title">{{$name}}</h1>
+            <h1 class="title">Comments</h1>
     <!-- Add Total Reviews and Avg Rating -->
     <h2 style="color: white;">
         <span>Total Reviews: {{ $review }}</span>
@@ -215,7 +215,8 @@
     </h2>
 
             <div class="button-container">
-                <a href="{{ route('review.createCommentCust') }}" class="add-comment-btn">
+
+                <a href="{{ route('review.createComment')}}" class="add-comment-btn">
                     + Add New Comment
                 </a>
                 <a href="#" class="book-now-btn">

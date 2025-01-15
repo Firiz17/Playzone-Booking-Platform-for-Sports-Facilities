@@ -12,9 +12,8 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function customerComments($id)
+    public function customerComments()
 {
-    $facilityName = Facility::findOrFail($id)->name;
     $averageRating =round(Review::avg('reviews'),1);
     $totalReviews = Review::whereHas('user', function ($query) {
         $query->where('role', 'customer');
@@ -27,13 +26,11 @@ class ReviewController extends Controller
     return view("review.show", [
         'comments' => $comments,
         'rating'=>$averageRating,
-        'review'=>$totalReviews,
-        'name'=>$facilityName
+        'review'=>$totalReviews
     ]);
 }
-        public function ownerComments($id)
+        public function ownerComments($id =null)
         {
-            $facilityName = Facility::findOrFail($id)->name;
             $averageRating =round(Review::avg('reviews'),1);
             $totalReviews = Review::whereHas('user', function ($query) {
                 $query->where('role', 'customer');
@@ -46,8 +43,7 @@ class ReviewController extends Controller
                 return view("review.showOwner", [
                     'comments' => $comments,
                     'rating'=>$averageRating,
-                    'review'=>$totalReviews,
-                    'name'=>$facilityName
+                    'review'=>$totalReviews
                 ]);
         }
 
@@ -59,13 +55,13 @@ class ReviewController extends Controller
             $user = Auth::user();  // Get the currently authenticated user
 
             if ($user->role === 'customer') {
-                return view('review.createCustomer');  // Customers can only create comments, no parent_id
+                return view('review.createCustomer');
             } elseif ($user->role === 'owner') {
                 if ($id) {
-                    $comment = Review::find($id);  // Find the comment by ID
+                    $comment = Review::find($id);
                     if ($comment) {
                         $username = $comment->user->username;
-                        // Get the username of the user (customer) who made the comment
+
                         return view('review.createOwner', ['username' => $username]);  // Pass only the username to the view
                     }
                     else {
@@ -77,6 +73,7 @@ class ReviewController extends Controller
                 abort(403, 'Unauthorized access.');
             }
         }
+
 
 
     /**
