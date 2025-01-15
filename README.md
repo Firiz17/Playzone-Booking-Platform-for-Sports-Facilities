@@ -128,6 +128,17 @@ Module 5 (ain) - event page: list of events
 ![Module 5 - event](https://github.com/user-attachments/assets/f153b823-728c-4864-8059-952cca8c1973)
 Module 5 (ain) - event page: search and filter events choices
 ![Module 5 - event (search & filter)](https://github.com/user-attachments/assets/f6c0e16d-a5ac-4a84-a9c0-46087683b725)
+Module 5 (ain) - click event 5: search and filter events choices
+![image](https://github.com/user-attachments/assets/8d3ef343-341e-417e-ae80-ece2e02261ec)
+Module 5 (ain) - join event 5 page: 
+![join event 5](https://github.com/user-attachments/assets/a2a42595-0468-4c56-a85f-337e987ca756)
+Module 5 (ain) - "successfully" join event 5 page: 
+![image](https://github.com/user-attachments/assets/c7267f7b-fb6e-4c99-9d10-068070586fb1)
+
+
+
+
+
 
 
 
