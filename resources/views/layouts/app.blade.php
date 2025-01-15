@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playzone - Book Your Sports Facility</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'Playzone')</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
+        :root {
+            --field-green: #2e5108;
+            --field-lines: #ffffff;
+            --sideline-brown: #8b4513;
+            --accent-gold: #ffd700;
+            --yard-line-gray: #dedede;
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Global Styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, var(--field-green), #1a3006);
+            color: var(--field-lines);
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/field.jpg');
-            background-size: cover;
-            background-position: 80% center;
-            background-attachment: fixed;
-        }
-
-        .main-content {
-            display: flex;
-            width: 100%;
-        }
-
-        .sidebar {
-            background-color: #2E7D32;
-            color: white;
-            width: 20%;
-            padding: 20px;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .sidebar h1 {
-            margin: 0 0 100px;
-            font-size: 24px;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #245024;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .logo {
             color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
         }
 
-        .sidebar nav ul {
-            list-style-type: none;
+        .nav-menu {
+            list-style: none;
             padding: 0;
-            margin: 0;
         }
 
-        .sidebar nav ul li {
-            margin-bottom: 20px;
-            text-align: center;
+        .nav-menu li {
+            margin-bottom: 15px;
         }
 
-        .sidebar nav ul li a {
+        .nav-menu a {
             color: white;
             text-decoration: none;
             display: block;
@@ -76,7 +81,7 @@
         .banner-image {
             width: 100%;
             height: 200px;
-            background-image: url('/images/court2.jpg');
+            background-image: url('/images/ftaklang.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -84,50 +89,88 @@
 
         /* Content Container */
         .container {
-            flex: 1;
-            margin: 100px auto;
-            padding: 10px;
-            background-color: rgba(227, 255, 210, 0.85);
-            border-radius: 900px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(8px);
-            max-width: 1200px;
-        }
-
-        .footer {
-            background-color: #2E7D32;
-            color: white;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 20px;
-            text-align: center;
+            box-sizing: border-box;
+            flex: 1;
         }
 
-        .footer a {
-            color: white;
+        /* Content Area with Green Background */
+        .content-area {
+            background-color: rgba(46, 81, 8, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a3006;
+            padding: 30px 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            margin-left: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--field-lines);
             text-decoration: none;
-            font-size: 16px;
+            transition: color 0.2s;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
+        .footer-links a:hover {
+            color: var(--accent-gold);
         }
 
-        .nav-separator {
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 30px 20px;
+        .copyright {
+            color: var(--field-lines);
+            font-size: 0.9em;
         }
 
-        .auth-item {
-            margin-top: 10px;
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                padding: 10px;
+            }
 
-        .auth-item a {
-            color: #ffd700;
-            transition: color 0.3s ease;
-        }
+            .logo {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
 
-        .auth-item a:hover {
-            color: white;
+            .main-content {
+                margin-left: 60px;
+            }
+
+            .footer-content {
+                margin-left: 60px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -137,7 +180,7 @@
         <div class="logo">PlayZone</div>
         <ul class="nav-menu">
             <li><a href="{{ route('homepage') }}">Home</a></li>
-            <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+            <li><a href="{{ route('facilities.show') }}">Facilities</a></li>
             <li><a href="#">Settings</a></li>
         </ul>
     </div>
@@ -147,17 +190,27 @@
         <!-- Banner Image -->
         <div class="banner-image"></div>
 
+        <!-- Main Container -->
         <div class="container">
-            @yield('content')
+            <div class="content-area">
+                @yield('content')
+            </div>
         </div>
-    </main>
 
-    <footer class="footer">
-        <p>&copy; {{ date('Y') }} PlayZone. All rights reserved.</p>
-        <p>
-            <a href="#">Terms & Conditions</a> | 
-            <a href="#">Privacy Policy</a>
-        </p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    &copy; {{ date('Y') }} PlayZone. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
