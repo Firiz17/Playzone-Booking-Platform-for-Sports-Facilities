@@ -36,7 +36,7 @@ Route::post('/submit-event-registration', function (Request $request) {
     return back()->with('success', 'You have successfully registered for the event!');
 });
 
-Route::get('/facilities/owner', [FacilityController::class, 'index'])->name('facilities.index'); // Homepage (Owner view)
+Route::get('/facilities/owner', [FacilityController::class, 'show'])->name('facilities.show'); // Homepage (Owner view)
 Route::get('/facilities', [FacilityController::class, 'show'])->name('facilities.show'); // Show facility details
 Route::get('/facilities/create', [FacilityController::class, 'create'])->name('facilities.create'); // Show create form
 Route::post('/facilities/store', [FacilityController::class, 'store'])->name('facilities.store'); // Store facility

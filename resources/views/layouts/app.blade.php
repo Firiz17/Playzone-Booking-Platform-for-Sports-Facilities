@@ -180,7 +180,7 @@
         <div class="logo">PlayZone</div>
         <ul class="nav-menu">
             <li><a href="{{ route('homepage') }}">Home</a></li>
-            <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+            <li><a href="{{ route('facilities.show') }}">Facilities</a></li>
             <li><a href="#">Settings</a></li>
         </ul>
     </div>
