@@ -9,21 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username')->unique()->after('last_name');
-            $table->string('role')->default('customer')->after('password');
+            $table->string('username')->unique()->nullable(false);  // Add 'username' column
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['username', 'role']);
+            $table->dropColumn('username');  // Drop 'username' column if rollback is needed
         });
     }
 };

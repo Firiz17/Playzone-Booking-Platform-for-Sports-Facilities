@@ -64,10 +64,11 @@ class AuthController extends Controller
 
            if ($user->role === 'customer') {
 
-               return redirect()->route('review.customerComment');
+            return redirect()->route('homepage');
+
             } elseif ($user->role === 'owner') {
 
-                return redirect()->route('review.ownerComment');
+                return redirect()->route('facilities.show');
             }
 
 

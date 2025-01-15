@@ -1,0 +1,131 @@
+:root {
+    --field-green: #2e5108;
+    --field-lines: #ffffff;
+    --sideline-brown: #8b4513;
+    --accent-gold: #ffd700;
+    --yard-line-gray: #dedede;
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Global Styles */
+  body {
+    background: linear-gradient(45deg, var(--field-green), #1a3006);
+    color: var(--field-lines);
+    font-family: 'Arial', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Header Styles */
+  h1 {
+    text-align: center;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px var(--shadow-dark);
+    margin-bottom: 30px;
+  }
+
+  /* Card Styles */
+  .facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .facility-card {
+    background: linear-gradient(to bottom, var(--sideline-brown), #613109);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--shadow-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .facility-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--yard-line-gray);
+    opacity: 0.3;
+  }
+
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--field-lines);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--field-lines);
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 5px var(--accent-gold);
+  }
+
+  /* Button Styles */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-gold);
+    color: var(--field-green);
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+  }
+
+  /* Action Buttons Container */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  /* Facility Info Styles */
+  .facility-info {
+    margin-bottom: 15px;
+  }
+
+  .facility-info label {
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .facility-value {
+    color: var(--field-lines);
+    font-size: 1.1em;
+  }
