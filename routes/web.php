@@ -19,7 +19,7 @@ Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
 
-
-//Route::get('/facilities', [FacilityController::class, 'index'])->name('facility.show'); // Homepage
-Route::resource('facilities', FacilityController::class); // Facility routes
+Route::get('/event', function(){
+    return view('event');
+});
 
