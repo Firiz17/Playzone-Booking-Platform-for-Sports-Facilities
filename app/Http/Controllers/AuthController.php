@@ -68,7 +68,7 @@ class AuthController extends Controller
 
             } elseif ($user->role === 'owner') {
 
-                return redirect()->route('review.ownerComment');
+                return redirect()->route('facilities.show');
             }
 
 

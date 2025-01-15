@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\JoinEventController;
 use Illuminate\Http\Request;
 
 // Set homepage as default
@@ -41,3 +38,12 @@ Route::get('/reviews/average', [ReviewController::class, 'average']);
 Route::get('/joinevent/{id}', [JoinEventController::class, 'index'])->name('joinevent.index');
 Route::post('/joinevent/register', [JoinEventController::class, 'store'])->name('joinevent.store');
 
+Route::get('/facilities/owner', [FacilityController::class, 'show'])->name('facilities.show'); // Homepage (Owner view)
+Route::get('/facilities', [FacilityController::class, 'show'])->name('facilities.show'); // Show facility details
+Route::get('/facilities/create', [FacilityController::class, 'create'])->name('facilities.create'); // Show create form
+Route::post('/facilities/store', [FacilityController::class, 'store'])->name('facilities.store'); // Store facility
+Route::get('/facilities/edit/{id}', [FacilityController::class, 'edit'])->name('facilities.edit'); // Show edit form
+Route::put('/facilities/update/{id}', [FacilityController::class, 'update'])->name('facilities.update'); // Update facility
+Route::delete('/facilities/delete/{id}', [FacilityController::class, 'destroy'])->name('facilities.destroy'); // Delete facility
+
+Route::get('/event', [HomeController::class, 'index'])->name('homepage');

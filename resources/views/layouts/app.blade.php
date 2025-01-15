@@ -54,9 +54,35 @@
         .sidebar nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
         }
 
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 200px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Banner Image */
+        .banner-image {
+            width: 100%;
+            height: 200px;
+            background-image: url('/images/court2.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Content Container */
         .container {
             flex: 1;
             margin: 100px auto;
@@ -106,20 +132,20 @@
     </style>
 </head>
 <body>
-    <main class="main-content">
-        <aside class="sidebar">
-            <h1>PlayZone</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('event.index') }}">Events</a></li>
-                    <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
-                    <li class="nav-separator"></li>
-                    <li class="auth-item"><a href="{{ route('login.create') }}">Login</a></li>
-                    <li class="auth-item"><a href="{{ route('signUp.create') }}">Register</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">PlayZone</div>
+        <ul class="nav-menu">
+            <li><a href="{{ route('homepage') }}">Home</a></li>
+            <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Banner Image -->
+        <div class="banner-image"></div>
 
         <div class="container">
             @yield('content')
