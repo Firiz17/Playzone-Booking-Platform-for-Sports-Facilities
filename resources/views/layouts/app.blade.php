@@ -81,7 +81,7 @@
         .banner-image {
             width: 100%;
             height: 200px;
-            background-image: url('/images/court2.jpg');
+            background-image: url('/images/ftaklang.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
