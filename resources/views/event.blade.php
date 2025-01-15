@@ -19,35 +19,52 @@
         }
 
         .sidebar {
+            width: 250px;
             background-color: #2E7D32;
             color: white;
-            width: 20%;
             padding: 20px;
             min-height: 100vh;
-            
         }
 
         .sidebar h1 {
-            margin: 0 0 100px;
-            font-size: 24px;
             text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: white;
         }
 
-        .sidebar nav ul {
-            list-style-type: none;
+        .sidebar ul {
+            list-style: none;
             padding: 0;
-            margin: 0;
         }
 
-        .sidebar nav ul li {
-            margin-bottom: 40px;
+        .sidebar ul li {
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .sidebar nav ul li a {
+        .sidebar ul li a {
             color: white;
             text-decoration: none;
             font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-separator {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 30px 20px;
+        }
+
+        .auth-item a {
+            color: #ffd700;
+            transition: color 0.3s ease;
+        }
+
+        .auth-item a:hover {
+            color: white;
         }
 
         .main-content {
@@ -177,10 +194,12 @@
             <h1>PlayZone</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Bookings</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('event.index') }}">Events</a></li>
+                    <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+                    <li class="nav-separator"></li>
+                    <li class="auth-item"><a href="{{ route('login.create') }}">Login</a></li>
+                    <li class="auth-item"><a href="{{ route('signUp.create') }}">Register</a></li>
                 </ul>
             </nav>
         </aside>
@@ -221,108 +240,114 @@
                 <button id="searchButton">Search</button>
             </div>
             <div class="event-cards" id="event-cards">
-                <!-- All event cards will be displayed initially -->
+                <!-- Event cards will be populated here -->
             </div>
         </main>
     </div>
 
     <script>
-        // Sample data representing events
         const events = [
             {
-            sport: "football",
-            date: "2025-01-15",
-            city: "gombak",
-            imgSrc: "images/event1.jpg",
-            time: "4:00 PM - 9:00 PM",
-            location: "IIUM Main Field",
-            prizes: "RM 1,000 + Trophy + Medals",
-            slotsAvailable: "8/12 Players"
-        },
-        {
-            sport: "volleyball",
-            date: "2025-02-10",
-            city: "kuala-lumpur",
-            imgSrc: "images/event2.jpg",
-            time: "8:00 AM - 5:00 PM",
-            location: "University Malaya Field",
-            prizes: "Medals + RM 2,000 Cash Prizes",
-            slotsAvailable: "15/20 Players"
-        },
-        {
-            sport: "badminton",
-            date: "2025-03-20",
-            city: "shah-alam",
-            imgSrc: "images/event3.jpg",
-            time: "10:00 AM - 4:00 PM",
-            location: "City Sports Complex",
-            prizes: "RM 500 + Trophies",
-            slotsAvailable: "20/32 Players"
-        },
-        {
-            sport: "volleyball",
-            date: "2025-04-05",
-            city: "penang",
-            imgSrc: "images/event4.jpg",
-            time: "9:00 AM - 1:00 PM",
-            location: "Penang Sports Arena",
-            prizes: "RM 600 + Medals",
-            slotsAvailable: "6/8 Players"
-        },
-        {
-            sport: "tennis",
-            date: "2025-05-10",
-            city: "kuala-lumpur",
-            imgSrc: "images/event5.jpg",
-            time: "2:00 PM - 6:00 PM",
-            location: "Kuala Lumpur Tennis Club",
-            prizes: "RM 1,500 + Trophies",
-            slotsAvailable: "4/6 Players"
-        },
-        {
-            sport: "football",
-            date: "2025-06-12",
-            city: "shah-alam",
-            imgSrc: "images/event6.jpg",
-            time: "4:00 PM - 9:00 PM",
-            location: "Shah Alam Football Field",
-            prizes: "RM 800 + Medals",
-            slotsAvailable: "10/16 Players"
-        },
-        {
-            sport: "basketball",
-            date: "2025-07-22",
-            city: "johor",
-            imgSrc: "images/event7.jpg",
-            time: "8:00 AM - 4:00 PM",
-            location: "Johor Basketball Stadium",
-            prizes: "RM 1,000 + Trophies",
-            slotsAvailable: "12/20 Players"
-        },
-        {
-            sport: "badminton",
-            date: "2025-08-18",
-            city: "gombak",
-            imgSrc: "images/event8.jpg",
-            time: "9:00 AM - 1:00 PM",
-            location: "IIUM Sports Hall",
-            prizes: "RM 500 + Medals",
-            slotsAvailable: "10/16 Players"
-        },
-        {
-            sport: "volleyball",
-            date: "2025-09-25",
-            city: "penang",
-            imgSrc: "images/event9.jpg",
-            time: "10:00 AM - 3:00 PM",
-            location: "Penang Beach Volleyball Court",
-            prizes: "RM 1,000 + Trophies",
-            slotsAvailable: "8/10 Players"
-        },
-       
+                id: 1,
+                sport: "football",
+                date: "2025-01-15",
+                city: "gombak",
+                imgSrc: "images/event1.jpg",
+                time: "4:00 PM - 9:00 PM",
+                location: "IIUM Main Field",
+                prizes: "RM 1,000 + Trophy + Medals",
+                slotsAvailable: "8/12 Players"
+            },
+            {
+                id: 2,
+                sport: "volleyball",
+                date: "2025-02-10",
+                city: "kuala-lumpur",
+                imgSrc: "images/event2.jpg",
+                time: "8:00 AM - 5:00 PM",
+                location: "University Malaya Field",
+                prizes: "Medals + RM 2,000 Cash Prizes",
+                slotsAvailable: "15/20 Players"
+            },
+            {
+                id: 3,
+                sport: "badminton",
+                date: "2025-03-20",
+                city: "shah-alam",
+                imgSrc: "images/event3.jpg",
+                time: "10:00 AM - 4:00 PM",
+                location: "City Sports Complex",
+                prizes: "RM 500 + Trophies",
+                slotsAvailable: "20/32 Players"
+            },
+            {
+                id: 4,
+                sport: "volleyball",
+                date: "2025-04-05",
+                city: "penang",
+                imgSrc: "images/event4.jpg",
+                time: "9:00 AM - 1:00 PM",
+                location: "Penang Sports Arena",
+                prizes: "RM 600 + Medals",
+                slotsAvailable: "6/8 Players"
+            },
+            {
+                id: 5,
+                sport: "tennis",
+                date: "2025-05-10",
+                city: "kuala-lumpur",
+                imgSrc: "images/event5.jpg",
+                time: "2:00 PM - 6:00 PM",
+                location: "Kuala Lumpur Tennis Club",
+                prizes: "RM 1,500 + Trophies",
+                slotsAvailable: "4/6 Players"
+            },
+            {
+                id: 6,
+                sport: "football",
+                date: "2025-06-12",
+                city: "shah-alam",
+                imgSrc: "images/event6.jpg",
+                time: "4:00 PM - 9:00 PM",
+                location: "Shah Alam Football Field",
+                prizes: "RM 800 + Medals",
+                slotsAvailable: "10/16 Players"
+            },
+            {
+                id: 7,
+                sport: "basketball",
+                date: "2025-07-22",
+                city: "johor",
+                imgSrc: "images/event7.jpg",
+                time: "8:00 AM - 4:00 PM",
+                location: "Johor Basketball Stadium",
+                prizes: "RM 1,000 + Trophies",
+                slotsAvailable: "12/20 Players"
+            },
+            {
+                id: 8,
+                sport: "badminton",
+                date: "2025-08-18",
+                city: "gombak",
+                imgSrc: "images/event8.jpg",
+                time: "9:00 AM - 1:00 PM",
+                location: "IIUM Sports Hall",
+                prizes: "RM 500 + Medals",
+                slotsAvailable: "10/16 Players"
+            },
+            {
+                id: 9,
+                sport: "volleyball",
+                date: "2025-09-25",
+                city: "penang",
+                imgSrc: "images/event9.jpg",
+                time: "10:00 AM - 3:00 PM",
+                location: "Penang Beach Volleyball Court",
+                prizes: "RM 1,000 + Trophies",
+                slotsAvailable: "8/10 Players"
+            },
         ];
 
-      
         function filterEvents() {
             const sport = document.querySelector('select[name="sports"]').value;
             const month = document.querySelector('select[name="month"]').value;
@@ -344,7 +369,7 @@
 
         function displayEvents(eventsToDisplay) {
             const eventCards = document.getElementById('event-cards');
-            eventCards.innerHTML = ""; // Clear existing events
+            eventCards.innerHTML = "";
 
             if (eventsToDisplay.length === 0) {
                 eventCards.innerHTML = "<p>No events found matching your criteria.</p>";
@@ -361,7 +386,7 @@
                         <p><strong>Location:</strong> ${event.location}</p>
                         <p><strong>Prizes:</strong> ${event.prizes}</p>
                         <p><strong>Participant Slots Available:</strong> ${event.slotsAvailable}</p>
-                         <a href="/joinevent" class="join-now-button">JOIN NOW</a>
+                        <a href="/joinevent/${event.id}" class="join-now-button">JOIN NOW</a>
                     </div>
                 `;
                 eventCards.appendChild(eventCard);
