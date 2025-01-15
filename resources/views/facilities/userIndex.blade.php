@@ -13,9 +13,11 @@
         }
 
         .field-header {
+            background: #1b501e;
             padding: 1rem;
+            border-radius: 8px;
             margin-bottom: 2rem;
-            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -25,12 +27,11 @@
         }
 
         .field-header h1 {
-            color: #245024;
-            font-size: 2rem;
+            color: white;
+            font-size: 2.5rem;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin: 0;
-            font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         .facilities-grid {
