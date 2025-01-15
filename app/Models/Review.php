@@ -5,7 +5,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
+
 {
+    use HasFactory;
 
     protected $fillable = ['comments', 'reviews', 'user_id'];  // Mass assignment protection
 
