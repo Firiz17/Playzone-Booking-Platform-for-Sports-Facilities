@@ -90,8 +90,8 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
          • Admin dashboard for platform performance monitoring (total users, bookings).
 6. Event Management Module
    - Features:
-         • Create and manage sports events or tournaments at facilities.
-         • Allow users to register as participants or spectators for events.
+         • View sports events or tournaments at facilities.
+         • Allow users to register as participants for events.
          • Event details (date, time, rules, prizes, participant capacity).
          • Integration with booking schedules to avoid double-booking facilities.
 ## Diagram  
@@ -121,10 +121,13 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 
 ## Print Screen 
 
+Module 5 - event page: list of events
 ![Module 5 - event](https://github.com/user-attachments/assets/f153b823-728c-4864-8059-952cca8c1973)
-
+Module 5 - event page: search and filter events choices
 ![Module 5 - event (search & filter)](https://github.com/user-attachments/assets/f6c0e16d-a5ac-4a84-a9c0-46087683b725)
 
 
 
 ## Challenges
+
+1. When our website crashes at certain times, we’ve realized that we need to be more cautious. Moving forward, we’ll take note not to easily commit and sync our changes to the web.php file without proper consideration, as it can affect our group members' work.
