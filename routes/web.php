@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 
 
 
-Route::get('/customer/comments', [ReviewController::class,'customerComments'])->name('review.customerComment');
-Route::get('/owner/comments', [ReviewController::class,'ownerComments'])->name('review.ownerComment');
+Route::get('/customer/comments{id}', [ReviewController::class,'customerComments'])->name('review.customerComment');
+Route::get('/owner/comments{id}', [ReviewController::class,'ownerComments'])->name('review.ownerComment');
 Route::get('/review/create/customer/comments/{id}', [ReviewController::class,'create'])->name('review.createComment');
 Route::get('/review/create/customer/comments', [ReviewController::class,'create'])->name('review.createCommentCust');
 Route::post('/review/post/comment',[ReviewController::class,'store'])->name('review.store');

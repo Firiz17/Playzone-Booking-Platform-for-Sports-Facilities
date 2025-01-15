@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Facility;
 
 class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function customerComments()
+    public function customerComments($id)
 {
+    $facilityName = Facility::findOrFail($id)->name;
     $averageRating =round(Review::avg('reviews'),1);
     $totalReviews = Review::whereHas('user', function ($query) {
         $query->where('role', 'customer');
@@ -25,11 +27,13 @@ class ReviewController extends Controller
     return view("review.show", [
         'comments' => $comments,
         'rating'=>$averageRating,
-        'review'=>$totalReviews
+        'review'=>$totalReviews,
+        'name'=>$facilityName
     ]);
 }
-        public function ownerComments()
+        public function ownerComments($id)
         {
+            $facilityName = Facility::findOrFail($id)->name;
             $averageRating =round(Review::avg('reviews'),1);
             $totalReviews = Review::whereHas('user', function ($query) {
                 $query->where('role', 'customer');
@@ -42,7 +46,8 @@ class ReviewController extends Controller
                 return view("review.showOwner", [
                     'comments' => $comments,
                     'rating'=>$averageRating,
-                    'review'=>$totalReviews
+                    'review'=>$totalReviews,
+                    'name'=>$facilityName
                 ]);
         }
 
