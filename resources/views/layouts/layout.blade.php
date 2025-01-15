@@ -169,7 +169,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Bookings</a></li>
                     <li><a href="#">Events</a></li>
-                    <li><a href="{{route('facilities.index')}}">Facility</a></li>
+                    <li><a href="{{route('facilities.show')}}">Facility</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href={{route('review.customerComment')}}>Comment</a></li>
                     <li class="auth-links"><a href="#">Login</a></li>

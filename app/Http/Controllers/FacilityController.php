@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Facility;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -12,12 +13,21 @@ class FacilityController extends Controller
     public function show()
     {
         $user = Auth::user();  // Get the currently authenticated user
-
+        $facilities = Facility::all();
             if ($user->role === 'customer') {
-                return view('facilities.userIndex');
-            } elseif ($user->role === 'owner') {
-                return view('facilities.index');
-            } else {
+                return view('facilities.userIndex', ['facilities' => $facilities]);
+
+            }
+
+            elseif ($user->role === 'owner') {
+                $facilities = Facility::where('user_id', $user->id)
+                                ->orderBy('created_at', 'desc')  // Optional: you can order by created date or any other field
+                                ->paginate(10);  // Paginate for better performance if many facilities are present
+                return view('facilities.index', ['facilities' => $facilities]);
+
+            }
+
+            else {
                 abort(403, 'Unauthorized access.');  // Prevent unauthorized roles from accessing this method
             }
     }
@@ -26,7 +36,7 @@ class FacilityController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return view('facilities.userIndex', ['facilities' => $facilities]);
+        return view('facilities.index', ['facilities' => $facilities]);
 
     }
 
@@ -65,7 +75,7 @@ class FacilityController extends Controller
             'user_id' => auth()->id(), // Get the ID of the authenticated user
         ]);
 
-        return redirect()->route('facilities.index')->with('success', 'Facility added successfully.');
+        return redirect()->route('facilities.show')->with('success', 'Facility added successfully.');
     }
 
     // Show the form for editing the specified facility
