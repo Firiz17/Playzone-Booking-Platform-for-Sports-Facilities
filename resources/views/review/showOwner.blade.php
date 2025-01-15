@@ -1,150 +1,286 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>PlayZone</title>
-
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        .navbar-custom {
-            background: #a8e063;
-            background: -webkit-linear-gradient(to right, #56ab2f, #a8e063);
-            background: linear-gradient(to right, #56ab2f, #a8e063);
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            font-family: 'Poppins', sans-serif;
         }
-        .gradient-custom {
-            background: #56ab2f;
-            background: -webkit-linear-gradient(to bottom right, #56ab2f, #a8e063);
-            background: linear-gradient(to bottom right, #56ab2f, #a8e063);
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #2E7D32;
+            padding-top: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
         }
-        .comment-box {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 20px; /* Increased margin-bottom to add more space between comments */
-            border-radius: 5px;
-            background-color: #f0f8f0; /* Light greenish background */
+
+        .sidebar-brand {
+            color: white;
+            font-size: 32px;
+            padding: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 600;
         }
-        .username {
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            color: white;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transform: translateX(10px);
+        }
+
+        .auth-section {
+            margin-top: auto;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main content area */
+        .main-content {
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+
+        /* Header image section */
+        .header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .header-container {
+            width: 100%;
+            height: 300px;
+            background-color: #444;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Button styles */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .add-comment-btn, .book-now-btn {
+            background-color: #FFA500;
+            color: black;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .book-now-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .add-comment-btn:hover {
+            background-color: #FFB124;
+            color: black;
+            text-decoration: none;
+        }
+
+        .book-now-btn:hover {
+            background-color: #45a049;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Rest of the styles remain the same */
+        .main-container {
+            background: rgba(0, 100, 0, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+        }
+
+        .title {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
             font-weight: bold;
-            margin-bottom: 5px;
         }
-        .comment {
-            margin-left: 20px;
+
+        .inner-container {
+            background: rgba(0, 80, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
         }
+
+        .comment-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            font-size: 18px;
+        }
+        .rating-stars .fas {
+            color: #ccc; /* Default star color */
+        }
+
+        .rating-stars .fas.active {
+            color: #ffc107; /* Active star color (gold) */
+        }
+
         .reply {
-            margin-left: 40px; /* Adjust this value to change the indentation */
+            margin-left: 40px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-top: 10px;
         }
-        /* Green button styling */
-        .btn-green {
-            background-color: #56ab2f;
+
+        /* New Reply Button Style */
+        .reply-btn {
+            background-color: #6c757d;
             color: white;
             border: none;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+            text-decoration: none;
         }
-        .btn-green:hover {
-            background-color: #a8e063;
+
+        .reply-btn:hover {
+            background-color: #5a6268;
             color: white;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">PlayZone</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Background image -->
-    <div
-        class="p-5 text-center bg-image"
-        style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp'); height: 400px; margin-bottom: 0;">
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
-                    <h1 class="mb-3">(Name of sports place)</h1>
-                    <h4 class="mb-3">Rating={{$rating}}/5</h4>
-                    <br>
-                    <h4 class="mb-3">Total Reviews={{$review}}</h4>
-                    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a>
-                </div>
-            </div>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-brand">PlayZone</div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Bookings</a>
+            <a href="#" class="nav-item">Events</a>
+            <a href="#" class="nav-item">Facility Management</a>
+            <a href="#" class="nav-item">Contact Us</a>
+        </nav>
+        <div class="auth-section">
+            <a href="#" class="nav-item">Login</a>
+            <a href="#" class="nav-item">Register</a>
         </div>
     </div>
-    <!-- Background image -->
 
-    <section class="gradient-custom" style="padding-top: 0;"> <!-- Remove top padding -->
-        <div class="container my-5 py-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-12 col-lg-10 col-xl-8">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <h4 class="text-center mb-4 pb-2 text-white">Comments</h4>
-                            @foreach ($comments as $comment)
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="d-flex flex-start comment-box">
-                                            <div class="flex-grow-1 flex-shrink-1">
-                                                <div>
-                                                    <p class="mb-1 text-dark">
-                                                        {{ $comment->user->username }}
-                                                        <span class="small text-muted">- {{ $comment->created_at }}</span>
-                                                        <a href="{{ route('review.createComment', ['id' => $comment->id]) }}" class="btn btn-green btn-sm">
-                                                            <i class="fas fa-reply fa-xs"></i><span class="small"> Reply</span>
-                                                        </a>
-                                                    </p>
-                                                    <p class="small mb-0 text-dark">{{ $comment->comments }}</p>
-                                                </div>
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Header Image Section -->
+        <div class="header-container">
+            <!-- Replace src with your actual image path -->
+            <img src="/images/ftaklang.jpg" alt="Header Image" class="header-image">
+        </div>
 
-                                                <!-- Display replies under the comment -->
-                                                @foreach ($comment->replies as $reply)
-                                                    <div class="d-flex flex-start mt-4 reply">
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <p class="mb-1 text-dark">
-                                                                {{ $reply->user->username }} (Owner)
-                                                                <span class="small text-muted">- {{ $reply->created_at }}</span>
-                                                            </p>
-                                                            <p class="small mb-0 text-dark">{{ $reply->comments }}</p>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
+        <!-- Comments Section -->
+        <div class="main-container">
+            <h1 class="title">{{ $name }}</h1>
+            <!-- Add Total Reviews and Avg Rating -->
+            <h2 style="color: white;">
+                <span>Total Reviews: {{ $review }}</span>
+                <span> | </span>
+                <span>Avg Rating: {{ number_format($rating, 1) }}</span>
+            </h2>
+
+            <div class="button-container">
+                <a href="#" class="book-now-btn">
+                    Book Now
+                </a>
+            </div>
+
+            <div class="inner-container">
+                @foreach ($comments as $comment)
+                <div class="comment-box">
+                    <div class="d-flex flex-start">
+                        <div class="flex-grow-1 flex-shrink-1">
+                            <div>
+                                <p class="mb-1">
+                                    {{ $comment->user->username }}
+                                    <span class="small">- {{ $comment->created_at }}</span>
+                                    <span class="rating-stars">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="fas fa-star {{ $i <= $comment->reviews ? 'active' : '' }}"></i>
+                                        @endfor
+                                    </span>
+                                    <a href={{ route('review.createComment', ['id' => $comment->id]) }} class="reply-btn">
+                                        Reply
+                                    </a>
+                                </p>
+                                <p class="small mb-0">{{ $comment->comments }}</p>
+                            </div>
+
+                            @foreach ($comment->replies as $reply)
+                                <div class="d-flex flex-start mt-4 reply">
+                                    <div class="flex-grow-1 flex-shrink-1">
+                                        <p class="mb-1">
+                                            {{ $reply->user->username }} (Owner)
+                                            <span class="small">- {{ $reply->created_at }}</span>
+                                        </p>
+                                        <p class="small mb-0">{{ $reply->comments }}</p>
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Bootstrap JS and dependencies -->
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

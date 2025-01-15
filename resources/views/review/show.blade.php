@@ -206,7 +206,7 @@
 
         <!-- Comments Section -->
         <div class="main-container">
-            <h1 class="title">Place name</h1>
+            <h1 class="title">{{$name}}</h1>
     <!-- Add Total Reviews and Avg Rating -->
     <h2 style="color: white;">
         <span>Total Reviews: {{ $review }}</span>
