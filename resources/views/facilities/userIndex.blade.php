@@ -101,7 +101,7 @@
 
     <div class="facilities-grid">
         @foreach ($facilities as $facility)
-        <a href="{{route("review.ownerComment")}}"><div class="facility-card">
+        <a href="{{route("review.customerComment")}}"><div class="facility-card">
              <!-- Facility Image -->
              <div class="facility-image">
                 @if (!empty($photos) && is_array($photos) && isset($photos[0]))

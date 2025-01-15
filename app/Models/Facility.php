@@ -15,4 +15,10 @@ class Facility extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function reviews()
+        {
+            return $this->hasMany(Review::class);
+        }
+
+
 }
