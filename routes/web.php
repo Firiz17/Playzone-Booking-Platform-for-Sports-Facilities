@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/customer/comments', [ReviewController::class,'customerComments'])->name('review.customerComment');
 Route::get('/owner/comments', [ReviewController::class,'ownerComments'])->name('review.ownerComment');
@@ -19,9 +20,8 @@ Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
 
-Route::get('/event', function(){
-    return view('event');
-});
+Route::get('/event',[HomeController::class,'index'])->name('homepage');
+
 
 
 Route::get('/facilities', [FacilityController::class, 'index']); // Homepage
