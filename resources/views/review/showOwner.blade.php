@@ -224,7 +224,7 @@
 
         <!-- Comments Section -->
         <div class="main-container">
-            <h1 class="title">{{ $name }}</h1>
+            <h1 class="title">Comments</h1>
             <!-- Add Total Reviews and Avg Rating -->
             <h2 style="color: white;">
                 <span>Total Reviews: {{ $review }}</span>
@@ -252,7 +252,7 @@
                                             <i class="fas fa-star {{ $i <= $comment->reviews ? 'active' : '' }}"></i>
                                         @endfor
                                     </span>
-                                    <a href={{ route('review.createComment', ['id' => $comment->id]) }} class="reply-btn">
+                                    <a href={{ route('review.createCommentCust', ['id' => $comment->id]) }} class="reply-btn">
                                         Reply
                                     </a>
                                 </p>

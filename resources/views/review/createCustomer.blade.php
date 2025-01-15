@@ -9,6 +9,7 @@
     <h2>Leave a Comment</h2>
     <form action="{{ route('review.store') }}" method="POST">
         @csrf
+
         <div class="form-group">
             <label for="comment">Comment</label>
             <textarea class="form-control" id="comment" name="comments" rows="4" required></textarea>
