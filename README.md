@@ -67,7 +67,7 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
    - Features:
         • User Sign-up/Login: Options for sign-up using email, or phone.
         • User Profile: Personal details, preferences, booking history, payment info, and notifications.
-        • User Roles: Different profiles for players, coaches, teams, or clubs with access to specific features.
+        • User Roles: have customer and owner to differentiate functionalities
 2. Facility Management Module
    - Features:
          • Add, update, and delete sports facilities (admin/owners).
@@ -83,7 +83,7 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
          • Players can leave reviews and ratings for facilities they’ve booked.
          • Facility owners can respond to reviews.
          • Display average ratings and reviews on facility pages.
-5. Notification and Reporting Module(Firhan)
+5. Notification and Reporting Module
     - Features:
          • Email/SMS notifications for booking confirmations, reminders, and cancellations.
          • Reports for facility owners (monthly revenue, booking trends).
@@ -120,7 +120,29 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 ![Module 5](Mock%20Up/Module%205.png)
 
 ## Print Screen 
+# Module Hariz Firhan (2220041)
+Sign in page
+![Sign In page](https://github.com/user-attachments/assets/03869db0-3dc8-4f16-88f1-ecfe0b38fcd4)
+Sign up page
+![image](https://github.com/user-attachments/assets/65b5fcdc-cb2e-449f-bfba-9571464e30f1)
+Comment section for customer
+![image](https://github.com/user-attachments/assets/788a365d-2faa-4184-997b-cf601d7b1724)
+Comment section for owner
+![image](https://github.com/user-attachments/assets/e36e7888-8a94-4576-8ef6-6c9a9fc5af97)
+## 📡 Routes List
+1. GET /customer/comments - review.customerComment
+2. GET /owner/comments - review.ownerComment
+3. GET /review/create/customer/comments - review.createComment
+4. GET /review/create/customer/comments/{id} - review.createCommentCust
+5. POST /review/post/comment - review.store
+6. GET /review/show/comment - review.index
+7. GET /reviews/average
 
+
+
+
+
+# module ain
 Module (ain) - Homepage
 ![Module Homepage](https://github.com/user-attachments/assets/2a4ef50c-9a87-4562-b7f0-2ea4af3d9406)
 
