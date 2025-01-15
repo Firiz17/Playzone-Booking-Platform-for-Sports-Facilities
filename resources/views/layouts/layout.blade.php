@@ -189,9 +189,9 @@ h1, h2 {
 
        @yield('content');
 
-    <footer class="footer">
+    {{-- <footer class="footer">
         <p>&copy; 2025 PlayZone. All Rights Reserved.</p>
         <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
-    </footer>
+    </footer> --}}
 </body>
 </html>
