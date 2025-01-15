@@ -37,6 +37,7 @@
             border: 2px solid #4CAF50;
             border-radius: 6px;
             font-size: 1rem;
+            color: black;
         }
 
         .form-input:focus {
