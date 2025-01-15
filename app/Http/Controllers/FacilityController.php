@@ -8,11 +8,25 @@ use App\Models\User;
 
 class FacilityController extends Controller
 {
+
+    public function show()
+    {
+        $user = Auth::user();  // Get the currently authenticated user
+
+            if ($user->role === 'customer') {
+                return view('facilities.userIndex');
+            } elseif ($user->role === 'owner') {
+                return view('facilities.index');
+            } else {
+                abort(403, 'Unauthorized access.');  // Prevent unauthorized roles from accessing this method
+            }
+    }
+
     // Display a listing of the facilities
     public function index()
     {
         $facilities = Facility::all();
-        return view('facilities.index', ['facilities' => $facilities]);
+        return view('facilities.userIndex', ['facilities' => $facilities]);
 
     }
 
@@ -48,6 +62,7 @@ class FacilityController extends Controller
             'available_sports' => $validatedData['available_sports'],
             'pricing' => $validatedData['pricing'],
             'photos' => json_encode($photos),
+            'user_id' => auth()->id(), // Get the ID of the authenticated user
         ]);
 
         return redirect()->route('facilities.index')->with('success', 'Facility added successfully.');

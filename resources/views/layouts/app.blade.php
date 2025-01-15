@@ -1,6 +1,3 @@
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,209 +6,211 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Playzone')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="{{ asset('css/football-theme.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
         :root {
-    --field-green: #2e5108;
-    --field-lines: #ffffff;
-    --sideline-brown: #8b4513;
-    --accent-gold: #ffd700;
-    --yard-line-gray: #dedede;
-    --shadow-dark: rgba(0, 0, 0, 0.2);
-}
+            --field-green: #2e5108;
+            --field-lines: #ffffff;
+            --sideline-brown: #8b4513;
+            --accent-gold: #ffd700;
+            --yard-line-gray: #dedede;
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+        }
 
-/* Global Styles */
-body {
-    background: linear-gradient(45deg, var(--field-green), #1a3006);
-    color: var(--field-lines);
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}
+        /* Global Styles */
+        body {
+            background: linear-gradient(45deg, var(--field-green), #1a3006);
+            color: var(--field-lines);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-.container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #245024;
+            padding: 20px;
+            z-index: 1000;
+        }
 
-/* Header Styles */
-.header-container {
-    background-color: var(--field-green);
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 30px;
-}
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
 
-h1 {
-    text-align: center;
-    color: var(--accent-gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px var(--shadow-dark);
-    margin: 0;
-    padding: 20px 0;
-}
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+        }
 
-/* Card Styles */
-.facility-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
 
-.facility-card {
-    background: linear-gradient(to bottom, var(--sideline-brown), #613109);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px var(--shadow-dark);
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-}
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
 
-.facility-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: var(--yard-line-gray);
-    opacity: 0.3;
-}
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-/* Form Styles */
-.form-group {
-    margin-bottom: 20px;
-    position: relative;
-    width: 100%;
-}
+        /* Main Content Area */
+        .main-content {
+            margin-left: 200px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-.form-control {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--field-lines);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    color: var(--field-lines);
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
+        /* Banner Image */
+        .banner-image {
+            width: 100%;
+            height: 200px;
+            background-image: url('/images/court2.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-.form-control:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 5px var(--accent-gold);
-}
+        /* Content Container */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            flex: 1;
+        }
 
-/* Add New Facility Button */
-.add-facility-button {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+        /* Content Area with Green Background */
+        .content-area {
+            background-color: rgba(46, 81, 8, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
+        /* Footer */
+        .footer {
+            background: #1a3006;
+            padding: 30px 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.btn-primary {
-    background-color: var(--accent-gold);
-    color: var(--field-green);
-}
+        .footer-content {
+            margin-left: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
 
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
-}
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-dark);
-}
+        .footer-links a {
+            color: var(--field-lines);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-/* Action Buttons Container */
-.action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    width: 100%;
-}
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
 
-/* Facility Info Styles */
-.facility-info {
-    margin-bottom: 15px;
-}
+        .copyright {
+            color: var(--field-lines);
+            font-size: 0.9em;
+        }
 
-.facility-info label {
-    color: var(--accent-gold);
-    display: block;
-    margin-bottom: 5px;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                padding: 10px;
+            }
 
-.facility-value {
-    color: var(--field-lines);
-    font-size: 1.1em;
-}
+            .logo {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .facility-grid {
-        grid-template-columns: 1fr;
-        padding: 10px;
-    }
+            .main-content {
+                margin-left: 60px;
+            }
 
-    .container {
-        padding: 10px;
-    }
-}
+            .footer-content {
+                margin-left: 60px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">PlayZone</div>
+        <ul class="nav-menu">
+            <li><a href="{{ route('homepage') }}">Home</a></li>
+            <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Banner Image -->
+        <div class="banner-image"></div>
+
+        <!-- Main Container -->
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">Playzone</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            {{-- <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('facilities.index') }}">Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('facilities.create') }}">Add Facility</a>
-                    </li>
-                </ul>
-            </div> --}}
+            <div class="content-area">
+                @yield('content')
+            </div>
         </div>
-    </nav>
 
-    <main class="container mt-4">
-        @yield('content')
-    </main>
-
-    <footer class="text-center mt-4">
-        <p>&copy; {{ date('Y') }} Playzone. All rights reserved.</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    &copy; {{ date('Y') }} PlayZone. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

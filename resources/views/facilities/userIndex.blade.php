@@ -4,13 +4,13 @@
 <div class="football-container">
     <style>
         .football-container {
-            background: linear-gradient(#2E7D32, #1B5E20);
+            background: linear-gradient(#1c5d1f, #1B5E20);
             min-height: 100%;
             padding: 2rem;
         }
 
         .field-header {
-            background: #388E3C;
+            background: #1b501e;
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 2rem;
@@ -24,7 +24,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin: 0;
         }
-
 
         .facilities-grid {
             display: grid;
@@ -65,7 +64,11 @@
             color: #555;
         }
 
+    </style>
 
+    <div class="field-header">
+        <h1>Sports Facilities</h1>
+    </div>
 
     <div class="facilities-grid">
         @foreach ($facilities as $facility)
@@ -78,7 +81,7 @@
                     <img src="{{ asset('images/placeholder.png') }}" alt="No Image Available">
                 @endif
             </div>
-            <div class="facility-name">{{ $facility->name }}</div>
+            <a href="{{route("review.ownerComment")}}"><div class="facility-name">{{ $facility->name }}</div></a>
             <div class="facility-info">📍 {{ $facility->location }}</div>
             <div class="facility-info">🏆 {{ $facility->available_sports }}</div>
             <div class="facility-info">💰 ${{ number_format($facility->pricing, 2) }}/hr</div>
