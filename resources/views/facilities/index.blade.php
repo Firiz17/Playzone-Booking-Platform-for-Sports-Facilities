@@ -127,7 +127,8 @@
                     <img src="{{ asset('images/placeholder.png') }}" alt="No Image Available">
                 @endif
             </div>
-            <a href="{{ route('review.ownerComment', ['id' => $facility->id]) }}"> <div class="facility-name">{{ $facility->name }}</div></a>
+            {{-- , ['id' => $facility->id] --}}
+            <a href="{{ route('review.ownerComment') }}"> <div class="facility-name">{{ $facility->name }}</div></a>
             <div class="facility-info">📍 {{ $facility->location }}</div>
             <div class="facility-info">🏆 {{ $facility->available_sports }}</div>
             <div class="facility-info">💰 ${{ number_format($facility->pricing, 2) }}/hr</div>

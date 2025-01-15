@@ -111,10 +111,10 @@
             <h1>Sports Facilities</h1>
         </div>
     </div>
-
+    {{-- , ['id' => $facility->id] --}}
     <div class="facilities-grid">
         @foreach ($facilities as $facility)
-        <a href="{{ route('review.customerComment', ['id' => $facility->id]) }}">
+        <a href="{{ route('review.customerComment') }}">
             <div class="facility-card">
                 <!-- Facility Image -->
                 <div class="facility-image">

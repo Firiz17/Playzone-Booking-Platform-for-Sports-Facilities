@@ -194,12 +194,12 @@
             <h1>PlayZone</h1>
             <nav>
                 <ul>
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('event.index') }}">Events</a></li>
-                    <li><a href="{{ route('facilities.index') }}">Facilities</a></li>
+                    <li><a href="{{ route('homepage') }}">Home</a></li>
+                    <li><a href="{{ route('event.show') }}">Events</a></li>
+                    <li><a href="{{ route('facilities.show') }}">Facilities</a></li>
                     <li class="nav-separator"></li>
-                    <li class="auth-item"><a href="{{ route('login.create') }}">Login</a></li>
-                    <li class="auth-item"><a href="{{ route('signUp.create') }}">Register</a></li>
+                    {{-- <li class="auth-item"><a href="{{ route('login.create') }}">Login</a></li> --}}
+
                 </ul>
             </nav>
         </aside>
@@ -357,7 +357,7 @@
             const filteredEvents = events.filter(event => {
                 const eventDate = new Date(event.date);
                 const eventMonth = (eventDate.getMonth() + 1).toString().padStart(2, '0');
-                
+
                 return (sport === "all" || event.sport === sport) &&
                     (month === "all" || eventMonth === month) &&
                     (city === "all" || event.city === city) &&
@@ -394,7 +394,7 @@
         }
 
         window.onload = function() {
-            displayEvents(events); 
+            displayEvents(events);
         };
 
         document.getElementById('searchButton').addEventListener('click', filterEvents);

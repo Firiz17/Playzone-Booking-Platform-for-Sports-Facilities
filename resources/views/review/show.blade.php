@@ -184,16 +184,16 @@
     <div class="sidebar">
         <div class="sidebar-brand">PlayZone</div>
         <nav class="nav-menu">
-            <a href="#" class="nav-item">Home</a>
-            <a href="#" class="nav-item">Bookings</a>
-            <a href="#" class="nav-item">Events</a>
-            <a href="#" class="nav-item">Facility Management</a>
-            <a href="#" class="nav-item">Contact Us</a>
+            <a href="{{route('homepage')}}" class="nav-item">Home</a>
+            {{-- <a href="#" class="nav-item">Bookings</a> --}}
+            <a href="{{route('event.show')}}" class="nav-item">Events</a>
+            {{-- <a href="#" class="nav-item">Facility Management</a> --}}
+            {{-- <a href="#" class="nav-item">Contact Us</a> --}}
         </nav>
-        <div class="auth-section">
+        {{-- <div class="auth-section">
             <a href="#" class="nav-item">Login</a>
             <a href="#" class="nav-item">Register</a>
-        </div>
+        </div> --}}
     </div>
 
     <!-- Main Content Area -->
