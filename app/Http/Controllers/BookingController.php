@@ -26,13 +26,13 @@ class BookingController extends Controller
     {
         // Validate input
         $request->validate([
-            'facility' => 'required|exists:facilities,id',
+            'facility' => 'exists:facilities,id',
             'start_time' => 'required',
             'end_time' => 'required|after:start_time',
         ]);
 
         // Store booking in the database
-        Booking::create([
+        $booking = Booking::create([
             'facility_id' => $request->facility,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,

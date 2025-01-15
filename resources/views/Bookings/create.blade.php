@@ -124,11 +124,11 @@
 
                     <div class="form-group">
                         <label for="facility">Facility:</label>
-                        <select name="facility" id="facility" >
+                        <select name="facility" id="facility">
                             <option value="">Select a facility</option>
-                            @foreach($facilities as $facility)
-                                <option value="{{ $facility->id }}">{{ $facility->name }}</option>
-                            @endforeach
+                            <option value="1">IOI Badminton Court</option>
+                            <option value="2">Basketball Court</option>
+                            <option value="3">Turf Field</option>
                         </select>
                     </div>
 
