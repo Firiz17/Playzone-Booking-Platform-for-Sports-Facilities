@@ -115,7 +115,7 @@ class FacilityController extends Controller
             'photos' => json_encode($photos),
         ]);
 
-        return redirect()->route('facilities.index')->with('success', 'Facility updated successfully.');
+        return redirect()->route('facilities.show')->with('success', 'Facility updated successfully.');
     }
 
     // Remove the specified facility from the database
@@ -131,6 +131,6 @@ class FacilityController extends Controller
 
         $facility->delete();
 
-        return redirect()->route('facilities.index')->with('success', 'Facility deleted successfully.');
+        return redirect()->route('facilities.show')->with('success', 'Facility deleted successfully.');
     }
 }
