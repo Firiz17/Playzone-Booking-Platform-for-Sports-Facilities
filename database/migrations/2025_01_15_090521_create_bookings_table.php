@@ -13,20 +13,23 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('facility_id')->constrained()->onDelete('cascade');
-            $table->datetime('start_time');
-            $table->datetime('end_time');
-            $table->string('status');
+            $table->unsignedBigInteger('facility_id'); // Reference to facilities
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('payment_status')->default('pending');
             $table->timestamps();
+
+            $table->foreign('facility_id')->references('id')->on('facilities')->onDelete('cascade');
         });
     }
-    }
+
 
     /**
      * Reverse the migrations.
      */
+
     public function down(): void
     {
         Schema::dropIfExists('bookings');
     }
+};

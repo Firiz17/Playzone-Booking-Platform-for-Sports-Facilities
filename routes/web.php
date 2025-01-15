@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Http\Request;
 
 
@@ -33,4 +34,10 @@ Route::post('/submit-event-registration', function (Request $request) {
     $data = $request->all();
     return back()->with('success', 'You have successfully registered for the event!');
 });
+
+Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+
+Route::get('/bookings/{booking}/payment', [BookingController::class, 'payment'])->name('bookings.payment');
+Route::post('/bookings/{booking}/payment', [BookingController::class, 'processPayment'])->name('payments.process');
 
