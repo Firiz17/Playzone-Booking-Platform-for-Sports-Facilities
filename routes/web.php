@@ -23,3 +23,6 @@ Route::get('/event', function(){
     return view('event');
 });
 
+
+Route::get('/facilities', [FacilityController::class, 'index']); // Homepage
+Route::resource('facilities', FacilityController::class); // Facility routes
