@@ -5,6 +5,8 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\JoinEventController;
 use Illuminate\Http\Request;
 
 
@@ -23,14 +25,10 @@ Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
 
-Route::get('/event', function () {
-    return view('event');
-});
-
+Route::get('/event/show',[EventController::class,'index'])->name('event.show');
 Route::get('/joinevent', function () {
     return view('joinevent');
 });
-
 Route::post('/submit-event-registration', function (Request $request) {
     $data = $request->all();
     return back()->with('success', 'You have successfully registered for the event!');
