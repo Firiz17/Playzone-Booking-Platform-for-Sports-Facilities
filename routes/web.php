@@ -3,14 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
-<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 
-=======
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\HomeController;
->>>>>>> 807a2b8b4c7f70d0a3792a41f38076056592f71f
 
 Route::get('/customer/comments', [ReviewController::class,'customerComments'])->name('review.customerComment');
 Route::get('/owner/comments', [ReviewController::class,'ownerComments'])->name('review.ownerComment');
@@ -26,7 +21,6 @@ Route::post('/signUp',[AuthController::class,'store'])->name('signUp.store');
 Route::get('/', [AuthController::class, 'create'])->name('login.create');
 Route::post('/signIn',[AuthController::class,'login'])->name('login.store');
 
-<<<<<<< HEAD
 Route::get('/event', function () {
     return view('event');
 });
@@ -39,17 +33,4 @@ Route::post('/submit-event-registration', function (Request $request) {
     $data = $request->all();
     return back()->with('success', 'You have successfully registered for the event!');
 });
-=======
-Route::get('/event',[HomeController::class,'index'])->name('homepage');
-
-
-
-Route::get('/facilities/owner', [FacilityController::class, 'index'])->name('facilities.index'); // Homepage (Owner view)
-Route::get('/facilities', [FacilityController::class, 'show'])->name('facilities.show'); // Show facility details
-Route::get('/facilities/create', [FacilityController::class, 'create'])->name('facilities.create'); // Show create form
-Route::post('/facilities/store', [FacilityController::class, 'store'])->name('facilities.store'); // Store facility
-Route::get('/facilities/edit/{id}', [FacilityController::class, 'edit'])->name('facilities.edit'); // Show edit form
-Route::put('/facilities/update/{id}', [FacilityController::class, 'update'])->name('facilities.update'); // Update facility
-Route::delete('/facilities/delete/{id}', [FacilityController::class, 'destroy'])->name('facilities.destroy'); // Delete facility
->>>>>>> 807a2b8b4c7f70d0a3792a41f38076056592f71f
 
