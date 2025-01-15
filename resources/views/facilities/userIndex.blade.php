@@ -50,6 +50,7 @@
             transition: transform 0.2s;
             display: flex;
             flex-direction: column;
+            padding-bottom: 1rem;
         }
 
         .facility-card:hover {
@@ -81,15 +82,27 @@
             color: #E0E0E0;
         }
 
-        a {
-            text-decoration: none;
+        .facility-details-box {
+            background: white;
+            margin: 0 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .facility-info {
-            margin: 0.5rem 1rem;
-            color: #E0E0E0;
+            color: #2E7D32;
             font-size: 0.9rem;
-            font-weight: 400;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .facility-info:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 
@@ -101,20 +114,24 @@
 
     <div class="facilities-grid">
         @foreach ($facilities as $facility)
-        <a href="{{ route('review.customerComment', ['id' => $facility->id]) }}"><div class="facility-card">
-             <!-- Facility Image -->
-             <div class="facility-image">
-                @if (!empty($photos) && is_array($photos) && isset($photos[0]))
-                    <img src="{{ asset('storage/' . $photos[0]) }}" alt="{{ $facility->name }}">
-                @else
-                    <img src="{{ asset('images/placeholder.png') }}" alt="No Image Available">
-                @endif
+        <a href="{{ route('review.customerComment', ['id' => $facility->id]) }}">
+            <div class="facility-card">
+                <!-- Facility Image -->
+                <div class="facility-image">
+                    @if (!empty($photos) && is_array($photos) && isset($photos[0]))
+                        <img src="{{ asset('storage/' . $photos[0]) }}" alt="{{ $facility->name }}">
+                    @else
+                        <img src="{{ asset('images/placeholder.png') }}" alt="No Image Available">
+                    @endif
+                </div>
+                <div class="facility-name">{{ $facility->name }}</div>
+                <div class="facility-details-box">
+                    <div class="facility-info">📍 {{ $facility->location }}</div>
+                    <div class="facility-info">🏆 {{ $facility->available_sports }}</div>
+                    <div class="facility-info">💰 ${{ number_format($facility->pricing, 2) }}/hr</div>
+                </div>
             </div>
-            <div class="facility-name">{{ $facility->name }}</div>
-            <div class="facility-info">📍 {{ $facility->location }}</div>
-            <div class="facility-info">🏆 {{ $facility->available_sports }}</div>
-            <div class="facility-info">💰 ${{ number_format($facility->pricing, 2) }}/hr</div>
-        </div></a>
+        </a>
         @endforeach
     </div>
 </div>
