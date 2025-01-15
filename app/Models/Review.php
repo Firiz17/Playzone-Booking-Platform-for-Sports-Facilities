@@ -22,6 +22,10 @@ public function replies()
 {
     return $this->hasMany(Review::class, 'parent_id');
 }
+public function facility()
+{
+    return $this->belongsTo(Facility::class);
+}
 
 
 
