@@ -29,49 +29,83 @@
         }
 
         /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 200px;
-            height: 100vh;
-            background-color: #245024;
-            padding: 20px;
-            z-index: 1000;
-        }
+      /* Sidebar */
+      .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 256px;  /* Exactly 16rem/256px like in the image */
+    height: 100vh;
+    background-color: #15803d;  /* Adjusted to match the green in the image */
+    padding: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
 
-        .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 40px;
-        }
+.logo {
+    color: white;
+    font-size: 2rem;  /* Larger font size to match */
+    font-weight: bold;
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+}
 
-        .nav-menu {
-            list-style: none;
-            padding: 0;
-        }
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;  /* Slightly tighter spacing */
+}
 
-        .nav-menu li {
-            margin-bottom: 15px;
-        }
+.nav-menu li {
+    margin: 0;
+}
 
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.2s;
-        }
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0.75rem;  /* More padding on left/right */
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    font-size: 1rem;  /* Adjusted font size */
+}
 
-        .nav-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+.nav-menu a:hover {
+    background-color: #16a34a;  /* Lighter green on hover */
+}
+
+/* Auth links at bottom */
+.auth-links {
+    margin-top: auto;  /* Push to bottom */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;  /* Added space from main nav */
+}
+
+.auth-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.auth-links a:hover {
+    background-color: #16a34a;
+}
 
         /* Main Content Area */
         .main-content {
-            margin-left: 200px;
+            margin-left: 256px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -180,8 +214,14 @@
         <div class="logo">PlayZone</div>
         <ul class="nav-menu">
             <li><a href="{{ route('homepage') }}">Home</a></li>
-            <li><a href="{{ route('facilities.show') }}">Facilities</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="">Bookings</a></li>
+            <li><a href="">Events</a></li>
+            <li><a href="{{ route('facilities.show') }}">Facility Management</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+        <ul class="auth-links">
+            <li><a href="">Login</a></li>
+            <li><a href="">Register</a></li>
         </ul>
     </div>
 
