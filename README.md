@@ -121,9 +121,12 @@ Playzone is a user-friendly platform that allows individuals and groups to seaml
 
 ## Print Screen 
 
-Module 5 - event page: list of events
+Module (ain) - Homepage
+![Module Homepage](https://github.com/user-attachments/assets/2a4ef50c-9a87-4562-b7f0-2ea4af3d9406)
+
+Module 5 (ain) - event page: list of events
 ![Module 5 - event](https://github.com/user-attachments/assets/f153b823-728c-4864-8059-952cca8c1973)
-Module 5 - event page: search and filter events choices
+Module 5 (ain) - event page: search and filter events choices
 ![Module 5 - event (search & filter)](https://github.com/user-attachments/assets/f6c0e16d-a5ac-4a84-a9c0-46087683b725)
 
 
