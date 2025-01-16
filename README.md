@@ -167,3 +167,4 @@ Module 5 (ain) - "successfully" join event 5 page:
 ## Challenges
 
 1. When our website crashes at certain times, we’ve realized that we need to be more cautious. Moving forward, we’ll take note not to easily commit and sync our changes to the web.php file without proper consideration, as it can affect our group members' work.
+2. Communication is important, i realize that too late as I tried to do my work on my own, and did not try to reach out to my teammates earlier
