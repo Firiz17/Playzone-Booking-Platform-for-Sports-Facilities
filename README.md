@@ -138,6 +138,26 @@ Comment section for owner
 6. GET /review/show/comment - review.index
 7. GET /reviews/average
 
+# Module Aqil Reza (2222987)
+Owner Blade
+![image](https://github.com/user-attachments/assets/3312feed-939c-499e-87f0-694ac0bed7e6)
+Customer Blade
+![image](https://github.com/user-attachments/assets/5b36e8ea-38ad-4ccb-842b-e9746f943b16)
+Edit Blade
+![image](https://github.com/user-attachments/assets/77deaf1f-e8f7-4c22-b9d0-eb4f8d32b257)
+Add Facility Blade
+![image](https://github.com/user-attachments/assets/e80617ac-32f0-4d4f-b2cd-8210281bf531)
+## Routes List
+Route::get('/facilities/owner', [FacilityController::class, 'show'])->name('facilities.show'); // Homepage (Owner view)
+Route::get('/facilities', [FacilityController::class, 'show'])->name('facilities.show'); // Show facility details
+Route::get('/facilities/create', [FacilityController::class, 'create'])->name('facilities.create'); // Show create form
+Route::post('/facilities/store', [FacilityController::class, 'store'])->name('facilities.store'); // Store facility
+Route::get('/facilities/edit/{id}', [FacilityController::class, 'edit'])->name('facilities.edit'); // Show edit form
+Route::put('/facilities/update/{id}', [FacilityController::class, 'update'])->name('facilities.update'); // Update facility
+Route::delete('/facilities/delete/{id}', [FacilityController::class, 'destroy'])->name('facilities.destroy'); // Delete facility
+
+
+
 
 
 
